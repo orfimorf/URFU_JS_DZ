@@ -1,0 +1,73 @@
+:root {
+  --icon: 56px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: sans-serif;
+  color: #fff;
+  background: linear-gradient(160deg, #1e3c72, #7f53ac);
+}
+
+h1 {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.dock {
+  position: fixed;
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dock__item {
+  --scale: 1;
+  width: calc(var(--icon) * var(--scale));
+  height: calc(var(--icon) * var(--scale));
+  /* 4. плавная анимация */
+  transition: width 0.25s, height 0.25s;
+}
+
+.dock__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* 1. элемент под курсором */
+.dock__item:hover {
+  --scale: 1.9;
+}
+
+/* 2. соседи +-1 */
+.dock__item:hover + .dock__item,
+.dock__item:has(+ .dock__item:hover) {
+  --scale: 1.45;
+}
+
+/* 3. соседи +-2 */
+.dock__item:hover + .dock__item + .dock__item,
+.dock__item:has(+ .dock__item + .dock__item:hover) {
+  --scale: 1.15;
+}
+
+/* горизонтальный ряд снизу, иконки растут вверх */
+.dock--horizontal {
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: flex-end;
+}
+
+/* вертикальный ряд слева, иконки растут вправо */
+.dock--vertical {
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+  align-items: flex-start;
+}

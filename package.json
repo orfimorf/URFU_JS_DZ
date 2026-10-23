@@ -1,0 +1,7 @@
+{
+  "name": "js-dz",
+  "version": "1.0.0",
+  "description": "Лабораторные работы по JavaScript",
+  "type": "module",
+  "private": true
+}

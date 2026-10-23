@@ -1,0 +1,223 @@
+:root {
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --text: #1f2330;
+  --muted: #6b7080;
+  --accent: #4f6bed;
+  --accent-2: #f0a04b;
+  --accent-3: #3fb68b;
+  --radius: 12px;
+  --gap: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--accent);
+}
+
+.nav {
+  display: flex;
+  gap: var(--gap);
+  padding: 12px 24px;
+  background: var(--surface);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.nav a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav a[aria-current="page"] {
+  color: var(--text);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card h2,
+.card h3 {
+  margin-top: 0;
+}
+
+/* ---------- Страница 1: главная ---------- */
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  margin-top: 24px;
+}
+
+.links a {
+  flex: 1 1 260px;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.links a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- Страница 2: Grid ---------- */
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr;
+  grid-template-areas:
+    "header  header  header"
+    "sidebar main    main"
+    "sidebar widget1 widget2"
+    "footer  footer  footer";
+  gap: var(--gap);
+}
+
+.grid-layout > .card:nth-child(1) { grid-area: header; background: var(--accent); color: #fff; }
+.grid-layout > .card:nth-child(2) { grid-area: sidebar; }
+.grid-layout > .card:nth-child(3) { grid-area: main; }
+.grid-layout > .card:nth-child(4) { grid-area: widget1; border-top: 4px solid var(--accent-2); }
+.grid-layout > .card:nth-child(5) { grid-area: widget2; border-top: 4px solid var(--accent-3); }
+.grid-layout > .card:nth-child(6) { grid-area: footer; text-align: center; color: var(--muted); }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--gap);
+  margin-top: 32px;
+}
+
+.gallery .tile {
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent-3));
+}
+
+.gallery .tile.wide {
+  grid-column: span 2;
+  aspect-ratio: auto;
+}
+
+@media (max-width: 700px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar"
+      "widget1"
+      "widget2"
+      "footer";
+  }
+
+  .gallery .tile.wide {
+    grid-column: span 1;
+    aspect-ratio: 1;
+  }
+}
+
+/* ---------- Страница 3: Flex ---------- */
+
+.flex-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.flex-header .menu {
+  display: flex;
+  gap: 8px;
+}
+
+.flex-header .menu span {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--bg);
+}
+
+.flex-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  margin-top: var(--gap);
+}
+
+.flex-cards .card {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-cards .card p {
+  flex-grow: 1; /* кнопки прижаты к низу карточек одинаковой высоты */
+}
+
+.flex-cards .card button {
+  align-self: flex-start;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.flex-row {
+  display: flex;
+  gap: var(--gap);
+  margin-top: 32px;
+}
+
+.flex-row .card {
+  flex: 1;
+}
+
+.flex-row .card.grow-2 {
+  flex: 2;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+  margin-top: 32px;
+  border: 2px dashed var(--muted);
+  border-radius: var(--radius);
+}
+
+@media (max-width: 700px) {
+  .flex-row {
+    flex-direction: column;
+  }
+}

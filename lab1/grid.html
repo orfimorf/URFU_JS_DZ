@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html">Главная</a>
+    <a href="grid.html" aria-current="page">Grid</a>
+    <a href="flex.html">Flex</a>
+  </nav>
+
+  <main class="container">
+    <h1>Вёрстка на CSS Grid</h1>
+
+    <h2>1. Макет через grid-template-areas</h2>
+    <div class="grid-layout">
+      <header class="card"><h3>Header</h3>Растянут на 3 колонки</header>
+      <aside class="card"><h3>Sidebar</h3>Фиксированная ширина 220px, занимает 2 строки</aside>
+      <section class="card"><h3>Main</h3>Основной контент на 2 колонки (1fr + 1fr)</section>
+      <section class="card"><h3>Widget 1</h3>Ячейка сетки</section>
+      <section class="card"><h3>Widget 2</h3>Ячейка сетки</section>
+      <footer class="card">Footer — на мобильных сетка перестраивается в одну колонку</footer>
+    </div>
+
+    <h2>2. Адаптивная галерея: repeat(auto-fill, minmax(160px, 1fr))</h2>
+    <div class="gallery">
+      <div class="tile">1</div>
+      <div class="tile wide">2 (span 2)</div>
+      <div class="tile">3</div>
+      <div class="tile">4</div>
+      <div class="tile">5</div>
+      <div class="tile">6</div>
+      <div class="tile">7</div>
+    </div>
+  </main>
+</body>
+</html>

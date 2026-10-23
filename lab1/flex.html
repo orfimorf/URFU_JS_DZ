@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html">Главная</a>
+    <a href="grid.html">Grid</a>
+    <a href="flex.html" aria-current="page">Flex</a>
+  </nav>
+
+  <main class="container">
+    <h1>Вёрстка на Flexbox</h1>
+
+    <h2>1. Шапка: justify-content: space-between</h2>
+    <div class="card flex-header">
+      <strong>Логотип</strong>
+      <div class="menu">
+        <span>Пункт 1</span>
+        <span>Пункт 2</span>
+        <span>Пункт 3</span>
+      </div>
+    </div>
+
+    <h2>2. Карточки одинаковой высоты: flex-wrap + flex-direction: column</h2>
+    <div class="flex-cards">
+      <article class="card">
+        <h3>Короткая</h3>
+        <p>Мало текста.</p>
+        <button>Подробнее</button>
+      </article>
+      <article class="card">
+        <h3>Средняя</h3>
+        <p>Текста побольше, но кнопка всё равно остаётся внизу карточки благодаря flex-grow у абзаца.</p>
+        <button>Подробнее</button>
+      </article>
+      <article class="card">
+        <h3>Длинная</h3>
+        <p>Много текста. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+        <button>Подробнее</button>
+      </article>
+    </div>
+
+    <h2>3. Пропорции: flex: 1 / flex: 2 / flex: 1</h2>
+    <div class="flex-row">
+      <div class="card">flex: 1</div>
+      <div class="card grow-2">flex: 2 — в два раза шире соседей</div>
+      <div class="card">flex: 1</div>
+    </div>
+
+    <h2>4. Центрирование: justify-content + align-items: center</h2>
+    <div class="flex-center">
+      <div class="card">Я по центру</div>
+    </div>
+  </main>
+</body>
+</html>

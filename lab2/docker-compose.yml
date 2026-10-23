@@ -1,0 +1,8 @@
+services:
+  web:
+    build: .
+    image: orfimorf/lab2-dock:latest
+    ports:
+      - "8081:80"
+      - "8444:443"
+    restart: unless-stopped
